@@ -1,0 +1,10 @@
+	public static int euler_12()
+	{
+		int curr = 1;
+		while(numDiv(sumAdd(curr)) < 500)
+		{
+			curr++;
+			//System.out.println(curr); //To see that it's actually processing
+		}
+		return sumAdd(curr);
+	}

@@ -1,0 +1,10 @@
+	public static double euler_3() 
+	{
+		double num = 600851475143.0;
+		while(num != lFactor(num))
+		{
+			num /= lFactor(num);
+		}
+
+		return num;
+	}

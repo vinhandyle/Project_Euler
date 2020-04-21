@@ -1,0 +1,25 @@
+	public static int euler_5()
+	{
+		int n = 1;
+		boolean good = false;
+		while(good != true)
+		{
+			int pass = 0;
+			for(int i = 1; i <= 20; i++)
+			{
+				if(n % i == 0)
+				{
+					pass++;
+				}
+			}
+			if(pass == 20)
+			{
+				good = true;
+			} 
+			else
+			{
+				n++;
+			}
+		}
+		return n;
+	}

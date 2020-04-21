@@ -1,0 +1,12 @@
+	public static double euler_10()
+	{
+		double sum = 2;
+		for(int i = 3; i < 2000000; i += 2)
+		{
+			if(checkPrime(i) == true)
+			{
+				sum += i;
+			}
+		}
+		return sum;
+	}

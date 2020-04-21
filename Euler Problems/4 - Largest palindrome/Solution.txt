@@ -1,0 +1,18 @@
+	public static int euler_4()
+	{
+		int big = 0;
+		int curr;
+		for(int i = 100; i < 1000; i++)
+		{
+			for(int j = 100; j < 1000; j++)
+			{
+				curr = i * j;
+				String currS = curr + "";
+				if(currS.equals(flip(currS)) && curr > big)
+				{
+					big = curr;
+				}
+			}
+		}
+		return big;
+	}

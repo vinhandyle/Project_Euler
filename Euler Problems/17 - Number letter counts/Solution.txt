@@ -1,0 +1,23 @@
+	public static int euler_17()
+	{
+		int sum = 0;
+		for(int i = 1; i < 1000; i++)
+		{
+			if(i % 100 < 20 && i % 100 > 9)
+			{
+				sum += digitLength(i % 100);
+			} else 
+			{
+				sum += digitLength((int)(Math.floor((i % 100) / 10) * 10)) + digitLength(i % 10);
+			}
+			if(i / 100 >= 1)
+			{
+				sum += 7 + digitLength((int)Math.floor(i / 100));
+				if(i % 100 != 0)
+				{
+					sum += 3;
+				}
+			}
+		}
+		return sum + 11;
+	}

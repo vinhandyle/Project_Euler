@@ -1,0 +1,6 @@
+	public static double euler_15()
+	{
+		How many such routes are there through a 20×20 grid?
+		double s = 20.0;
+		return combin(2 * s, s);
+	}

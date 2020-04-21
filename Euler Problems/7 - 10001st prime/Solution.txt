@@ -1,0 +1,26 @@
+	public static int euler_7()
+	{
+		int numP = 3;
+		int num = 5;
+		int curr = 5;
+		while(numP <= 10001)
+		{
+			boolean prime = true;
+			int factor = 3;
+			while(prime == true && factor < curr)
+			{
+				if(curr % factor == 0)
+				{
+					prime = false;
+				}
+				factor += 2;
+			}
+			if(prime == true)
+			{
+				num = curr;
+				numP++;
+			}
+			curr += 2;
+		}
+		return num;
+	}

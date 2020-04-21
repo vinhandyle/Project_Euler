@@ -1,0 +1,20 @@
+	public static int euler_9()
+	{
+		int a = 1;
+		int b = 2;
+		double c = 3;
+		for(int i = 1; i < 333; i++)
+		{
+			a = i;
+			for(int j = i + 1; j < 499; j++)
+			{
+				b = j;
+				c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+				if(c == Math.floor(c) && a + b + (int)c == 1000)
+				{
+					return a * b * (int)c;
+				}
+			}
+		}
+		return 0;
+	}
