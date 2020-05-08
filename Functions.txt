@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Functions
 {
 	public static int sumAdd(int n) 
@@ -145,4 +147,62 @@ public class Functions
 		
 		return 0;
 	}
+	
+	public static int biggestInArray(int[] arr)
+	{ //goes through an array and returns the largest number
+	  //swap parameter to int[] arr or ArrayList<Integer> arr if needed
+		int largest = 0;
+		for(int i = 0; i < arr.length; i++)
+		{
+			if(arr[i] > largest) {largest = arr[i];} //int[] arr
+			//if(arr.get(i) > largest) {largest = arr.get(i);} //ArrayList<Integer> arr
+		}
+		return largest;
+	}
+	
+	public static void fillSumArr(int[][] arr, int[] sumArr)
+	{ //2d triangle array -> sums of each path -> sum array
+		
+		//first row
+		for(int i = 0; i < sumArr.length; i++)
+		{ 
+			sumArr[i] += arr[0][0];
+		}
+		
+		//other rows
+		for(int i = 1; i < 4; i++)
+		{ 			
+			int index = 0;
+			
+			//inner curve (fix, some paths arent traced)
+			for(int j = 0; j < i; j++)
+			{ 
+				for(int k = 0; k < Math.pow(2, (j - i + arr.length - 1)); k++)
+				{ 
+					sumArr[index] += arr[i][j];
+					index++;
+				}
+			}
+			
+			//outer curve
+			for(int j = 0; j < sumArr.length; j++)
+			{
+				if((int)(j / (sumArr.length / Math.pow(2, i))) == Math.pow(2, i) - 1)
+				{ 
+					sumArr[j] += arr[i][i]; 
+				}
+			}
+		}
+	}
+	
+	public static void printArray(int[] arr)
+	{
+		System.out.print("[");
+		for(int i = 0; i < arr.length - 1; i++)
+		{
+			System.out.print(arr[i] + ", ");
+		}
+		System.out.println(arr[arr.length - 1] + "]");
+	}
+	
 }

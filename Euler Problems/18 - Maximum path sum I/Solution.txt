@@ -37,7 +37,7 @@
 		}
 		
 		//algorithms
-
+		
 		//largest next
 //		int indexN = 0;
 //		for(int i = 0; i < size; i++)
@@ -46,12 +46,17 @@
 //			if(i < size - 1)
 //			{
 //				if(arr[i + 1][indexN] < arr[i + 1][indexN + 1])
-//				{
+//				{ //checks if the term below is less than the term below and to the right
 //					indexN++;
 //				}
 //			}
 //		}
+//		return largest;
 		
-		return sum;
+		//brute force
+		int[] sumArr = new int[(int)Math.pow(2, arr.length - 1)];	
+		fillSumArr(arr, sumArr);	
+		printArray(sumArr);
+		return biggestInArray(sumArr);
 	}
 }
