@@ -98,6 +98,26 @@ public class Functions
 		return num;
 	}
 	
+	public static int sumDiv(int n)
+	{ // Sum of proper divisors of n
+		int sum = 0;
+		int curr = n - 1;
+		while(curr > 0)
+		{
+			if(n % curr == 0)
+				sum += curr;
+			curr--;
+		}
+		return sum;
+	}
+	
+	public static boolean amicable(int n)
+	{
+		if(sumDiv(sumDiv(n)) == n && sumDiv(n) != n)
+			return true;		
+		return false;
+	}
+	
 	public static double factorial(double n)
 	{
 		double ex = 1;
@@ -160,49 +180,67 @@ public class Functions
 		return largest;
 	}
 	
-	public static void fillSumArr(int[][] arr, int[] sumArr)
-	{ //2d triangle array -> sums of each path -> sum array
+	public static void fillSumArr(int[][] arr2D, int[] sumArr)
+	{ //2d triangle array -> sums of each path -> sum array 
+		int index = 0; // current spot in sumArr
 		
-		//first row
-		for(int i = 0; i < sumArr.length; i++)
-		{ 
-			sumArr[i] += arr[0][0];
-		}
+		int[] arr = new int[arr2D.length];
 		
-		//other rows
-		for(int i = 1; i < arr.length; i++)
-		{ 			
-			int index = 0;
+		while(index < sumArr.length)
+		{
+			// Re-calibrate 
+			for(int i = arr.length - 1; i > 0; i--)
+			{				
+				if(arr[i] > arr[i - 1] + 1)
+				{
+					arr[i - 1]++;
+					arr[i] = arr[i - 1];
+					if(i < arr.length - 1)
+						if(arr[i] < arr[i + 1])
+							arr[i + 1] = arr[i];
+				}					
+			}	
 			
-			//inner curve (fix, some paths arent traced)
-			for(int j = 0; j < i; j++)
-			{ 
-				for(int k = 0; k < Math.pow(2, (j - i + arr.length - 1)); k++)
-				{ 
-					sumArr[index] += arr[i][j];
-					index++;
-				}
-			}
+			// Stops when all possible paths are looked through
+			if(arr[0] > 0)
+				break;
 			
-			//outer curve
-			for(int j = 0; j < sumArr.length; j++)
+			// Add values to a point in sumArr
+			for(int i = 0; i < arr.length; i++)
 			{
-				if((int)(j / (sumArr.length / Math.pow(2, i))) == Math.pow(2, i) - 1)
-				{ 
-					sumArr[j] += arr[i][i]; 
-				}
+				sumArr[index] += arr2D[i][arr[i]];
+				System.out.print(arr[i] + ", ");
 			}
+			System.out.println();
+			
+			index++;
+			arr[arr.length - 1]++;
 		}
 	}
 	
 	public static void printArray(int[] arr)
 	{
-		System.out.print("[");
-		for(int i = 0; i < arr.length - 1; i++)
+		System.out.print("[" + arr[0]);
+		for(int i = 1; i < arr.length; i++)
 		{
-			System.out.print(arr[i] + ", ");
+			if(arr[i] != arr[i - 1] && arr[i] != 0)
+				System.out.println();
+			
+			if(arr[i] != 0)
+				System.out.print(", " + arr[i]);
 		}
-		System.out.println(arr[arr.length - 1] + "]");
+		System.out.println("]");
 	}
 	
+	public static int pascal(int row, int index)
+	{ // Returns the value at a specified row and index in Pascal's triangle
+		int num = 0;
+		
+		if(row == 0 || index == 0 || index == row)
+			num = 1;
+		else
+			num = pascal(row - 1, index - 1) + pascal(row - 1, index);
+				
+		return num;
+	}
 }
