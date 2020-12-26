@@ -43,8 +43,9 @@ def list_unique_factors(num: int) -> [int]:
             # If a factor is found, add it and its partner to the list
             if num % index == 0:
                 num_list.append(index)
-                if num / index != index:
-                    num_list.append(int(num / index))
+                partner = int(num / index)
+                if not partner in num_list:
+                    num_list.append(partner)
 
     return num_list
 

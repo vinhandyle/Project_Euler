@@ -66,7 +66,7 @@ def get_second_ans() -> int:
 
 def _get_report() -> [int]:
     '''
-    Finds the text file called input_1.txt and returns its content as a list of
+    Finds the text file specified by INPUT and returns its content as a list of
     integers.
     '''
     num_list = []

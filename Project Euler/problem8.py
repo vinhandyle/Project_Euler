@@ -32,6 +32,7 @@ def _get_num_list() -> [int]:
             except:
                 pass
 
+    file.close()
     return num_list
 
 

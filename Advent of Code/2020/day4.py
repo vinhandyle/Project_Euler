@@ -15,6 +15,7 @@ def run() -> None:
 
 
 def get_first_ans() -> int:
+    '''Returns the number of "valid" passports based on keys only'''
     passports = _get_passports()
     valid_passports = 0
     
@@ -26,7 +27,8 @@ def get_first_ans() -> int:
 
 
 
-def get_second_ans() -> '???':
+def get_second_ans() -> int:
+    '''Returns the number of "valid" passports based on keys and fields'''
     passports = _get_passports()
     valid_passports = 0
 
@@ -124,7 +126,7 @@ def _is_valid_passport(passport: dict) -> bool:
     
 def _get_passports() -> [dict]:
     '''
-    Finds the text file called input_4.txt and returns its content as a list of
+    Finds the text file specified by INPUT and returns its content as a list of
     dictionaries containing passport fields.
     '''
     passports = []

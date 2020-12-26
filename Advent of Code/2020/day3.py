@@ -23,6 +23,10 @@ def get_first_ans() -> int:
 
 
 def get_second_ans() -> int:
+    '''
+    Returns the number of trees encountered, starting at the top-left corner of
+    the map and following multiple slopes.
+    '''
     tree_map = _get_tree_map()
     return _trees_in_the_way(tree_map, 1, 1) * \
            _trees_in_the_way(tree_map, 3, 1) * \
@@ -59,7 +63,7 @@ def _trees_in_the_way(tree_map: [[str]], right: int, down: int) -> int:
 
 def _get_tree_map() -> [[str]]:
     '''
-    Finds the text file called input_3.txt and returns its content as a nested
+    Finds the text file specified by INPUT and returns its content as a nested
     list of strings.
     '''
     tree_map = []

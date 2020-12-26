@@ -1,5 +1,6 @@
 # Problem 10: Summation of primes
 # Answer: 142913828922
+# Bad time complexity
 
 import euler
 

@@ -82,7 +82,8 @@ def _get_triangle() -> [[int]]:
                 chunk += char
         section.append(int(chunk))
         triangle.append(section)
-        
+
+    file.close()
     return triangle
                 
 

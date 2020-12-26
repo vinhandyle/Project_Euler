@@ -83,7 +83,7 @@ def _times_appeared_in(c: str, s: str) -> int:
     
 def _get_database() -> [(int, int, str, str)]:
     '''
-    Finds the text file called input_2.txt and returns its content as a list of
+    Finds the text file specified by INPUT and returns its content as a list of
     tuples containing (a, b, c, d) where a and b are the minimum and maximum
     number of occurences of c in d.
     '''
