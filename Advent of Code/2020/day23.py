@@ -7,6 +7,7 @@ TEST = '389125467'
 A = 100
 B = 10000000
 DEBUG = False
+DEBUG2 = True
 
 
 class CupGame:
@@ -153,7 +154,7 @@ class CupGame:
     
 def run() -> None:
     print(get_first_ans())
-    #print(get_second_ans())
+    print(get_second_ans())
 
 
 
@@ -165,12 +166,14 @@ def get_first_ans() -> str:
 
     move = 0
     try:
-        while move < A:
+        moves = A
+        while move < moves:
             #print(game.cups())
             game.pick_up_cups()
             #print(game.picked_up_cups())
             game.place_cups()
             move += 1
+            print(f'{move}\n' if DEBUG2 and move % (moves // 10) == 0 else '', end = '')
 
     except KeyboardInterrupt:
         print(move)
@@ -189,10 +192,12 @@ def get_second_ans() -> int:
 
     move = 0
     try:
-        while move < B:
+        moves = A
+        while move < moves:
             game.pick_up_cups()
             game.place_cups()
             move += 1
+            print(f'{move}\n' if DEBUG2 and move % (moves // 10) == 0 else '', end = '')
 
     except KeyboardInterrupt:
         print(move)
