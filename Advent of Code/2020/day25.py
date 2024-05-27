@@ -1,27 +1,40 @@
 # Day 25: Combo Breaker
-# Part 1:
-# Part 2:
+# Part 1: 15217943
 
 from pathlib import Path
 
-INPUT = Path('input_25.txt')
+pk_card = 8987316
+pk_door = 14681524
 
 
 def run() -> None:
     print(get_first_ans())
-    print(get_second_ans())
 
 
 
 def get_first_ans() -> int:
-    pass
+    ls = brute_force_decrypt(pk_card)
+    return transform(pk_door, ls)
 
 
 
-def get_second_ans() -> int:
-    pass
+def transform(num, loop_size):
+    n = 1
+    for i in range(loop_size):
+        n *= num
+        n %= 20201227
+    return n
 
 
+def brute_force_decrypt(pk):
+    n, i = 1, 0
+    while n != pk:
+        n *= 7
+        n %= 20201227
+        i += 1
+    return i
+
+        
 
 if __name__ == '__main__':
     run()
