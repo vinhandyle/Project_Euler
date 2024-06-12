@@ -2,20 +2,16 @@
 # Part 1:  
 # Part 2: 
 
-INPUT = 'input_17.txt'
+X_TARGET = [175, 227]
+Y_TARGET = [134, -79]
 
     
     
 def run():
-    i = get_input()
+    pass
 
 
 
-
-def get_input() -> [int]:
-    '''Parses the input file and returns an integer matrix'''
-    with open(INPUT) as f:
-        pass
 
 
 
